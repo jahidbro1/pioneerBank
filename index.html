@@ -33,7 +33,7 @@
             <div class="col-md-4 ">
                 <div class="withdraw  status">
                     <h5>Withdraw</h5>
-                    <h2>$00</h2>
+                    <h2>$ <span id="currentWithDraw">00</span></h2>
                 </div>
             </div>
             <div class="col-md-4 ">
@@ -90,7 +90,8 @@
            
            
             updateSpanText("currentDeposit", depositNumber);
-            updateSpanText("currentBalance", depositNumber);      
+            updateSpanText("currentBalance", depositNumber);   
+             
 
             document.getElementById("depositAmount").value = "";
         })
@@ -100,7 +101,9 @@
         //    const withDrawAmount = document.getElementById("withDrawAmount").value;
         //    const withDrawNumber = parseFloat(withDrawAmount);
                  const withDrawNumber = getInputNumber("withDrawAmount");
-                console.log(withDrawNumber)
+                 updateSpanText("currentWithDraw", withDrawNumber);
+                 updateSpanText("currentBalance",-1 * withDrawNumber);
+                 document.getElementById("withDrawAmount").value = "";  
         })
 
         function getInputNumber(id){
